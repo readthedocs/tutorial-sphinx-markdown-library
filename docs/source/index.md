@@ -7,6 +7,9 @@
 :relative-images:
 ```
 
+Check out {doc}`/usage` for further information,
+and {ref}`Installation` for installation instructions.
+
 ```{warning}
 This library is under active development.
 ```
@@ -14,4 +17,6 @@ This library is under active development.
 ```{toctree}
 :caption: 'Contents:'
 :maxdepth: 2
+
+usage
 ```
