@@ -19,4 +19,5 @@ This library is under heavy development.
 :maxdepth: 2
 
 usage
+notebooks/tutorial
 ```
