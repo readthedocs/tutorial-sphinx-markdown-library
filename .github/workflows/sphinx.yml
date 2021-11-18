@@ -12,4 +12,5 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v1
       with:
+        name: html-docs
         path: docs/_build/html/
