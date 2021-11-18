@@ -7,17 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Sphinx to GitHub Pages
-      uses: sphinx-notes/pages@1.0
-      with:
-        documentation_path: docs/source
+    - name: Build HTML
+      uses: ammaraskar/sphinx-action@0.4
     - name: Upload artifacts
       uses: actions/upload-artifact@v1
       with:
         name: html-docs
         path: docs/build/html/
-    - name: Push changes
-      uses: ad-m/github-push-action@master
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@3.7.1
       if: github.ref == 'refs/heads/main'
       with:
-        branch: gh-pages
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: docs/build/html/
+        CLEAN: true
