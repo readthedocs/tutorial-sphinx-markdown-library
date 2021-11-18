@@ -10,8 +10,6 @@
 For further info, check out {doc}`usage`.
 Read installation instructions in {ref}`Installation`.
 
-Yay!
-
 ```{warning}
 This library is under heavy development.
 ```
