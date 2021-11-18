@@ -1,3 +1,0 @@
-.[doc]
-
-pygments>=2.7  # See https://github.com/sphinx-notes/pages/issues/5
