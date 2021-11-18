@@ -35,7 +35,6 @@ extensions = [
     "sphinx.ext.duration",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.autodoc",
-    "nbsphinx",  # MyST-NB
 ]
 
 # Add any paths that contain templates here, relative to this directory.
