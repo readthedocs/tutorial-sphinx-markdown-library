@@ -1,0 +1,24 @@
+name: Sphinx build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build HTML
+      uses: ammaraskar/sphinx-action@0.4
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: html-docs
+        path: docs/build/html/
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      if: github.ref == 'refs/heads/main'
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: docs/build/html/
+        CLEAN: true
