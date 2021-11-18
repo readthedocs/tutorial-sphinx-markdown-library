@@ -1,0 +1,14 @@
+name: Sphinx build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Sphinx Build
+      uses: ammaraskar/sphinx-action@0.4
