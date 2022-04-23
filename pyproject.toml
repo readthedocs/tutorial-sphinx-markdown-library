@@ -6,3 +6,12 @@ build-backend = "flit_core.buildapi"
 name = "lumache"
 authors = [{name = "Graziella", email = "graziella@lumache"}]
 dynamic = ["version", "description"]
+
+[project.optional-dependencies]
+doc = [
+    "sphinx~=4.2.0",
+    "myst_parser",
+    "furo",
+    "nbsphinx",
+    "sphinx_rtd_theme~=1.0.0"
+]
