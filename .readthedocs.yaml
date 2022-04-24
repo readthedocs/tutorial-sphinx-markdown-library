@@ -30,3 +30,5 @@ python:
       path: .
       extra_requirements:
         - doc
+
+formats: all
