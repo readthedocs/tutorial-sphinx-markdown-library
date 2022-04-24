@@ -55,10 +55,10 @@ html_search_language = 'zh'
 # ones.
 extensions = [
     "myst_parser",
-    "sphinx.ext.duration",
-    "sphinx.ext.autosectionlabel",
-    "nbsphinx",
-    "sphinx.ext.autodoc",
+    "sphinx.ext.duration", # 计时
+    "sphinx.ext.autosectionlabel", # 引用
+    "nbsphinx", # MyST-NB
+    "sphinx.ext.autodoc",# 引用程序语言函数  
     "sphinx.ext.intersphinx",
 ]
 
