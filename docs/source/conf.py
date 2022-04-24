@@ -31,6 +31,7 @@ release = '2.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'myst_parser',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -42,6 +43,7 @@ templates_path = ['_templates']
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
 language = 'zh'
+html_search_language = 'zh'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -84,3 +86,13 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# -- Options for EPUB output
+epub_show_urls = 'footnote'
+
+# -- Options for PDF output
+latex_engine = 'xelatex'
+latex_use_xindy = False
+latex_elements = {
+    'preamble': '\\usepackage[UTF8]{ctex}\n',
+}
