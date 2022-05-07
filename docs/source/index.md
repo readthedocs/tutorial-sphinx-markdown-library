@@ -20,10 +20,14 @@
 %```
 
 ```{toctree}
-:caption: "目录"
+:caption: "First Step"
 :maxdepth: 3
-
 quick_start
-%usage
-
+```
+```{toctree}
+:caption: "User's documentation"
+:maxdepth: 3
+fre
+feature
+personal
 ```
