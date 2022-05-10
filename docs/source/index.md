@@ -11,6 +11,7 @@
 欢迎使用  “神工坊”  高性能仿真平台用户门户手册。本手册提供的信息可以帮助您快速了解  “神工坊”  高性能仿真平台用户门户，并能够指导您开始使用  “神工坊”  高性能仿真平台用户门户。
 
 {ref}`快速上手示例`
+{ref}`远程桌面`
 
 %Check out {doc}`/usage` for further information,
 %and {ref}`Installation` for installation instructions.
