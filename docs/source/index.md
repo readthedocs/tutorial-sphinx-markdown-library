@@ -23,7 +23,8 @@
 ```{toctree}
 :caption: "First Step"
 :maxdepth: 3
-quick_start
+chapter_one
+chapter_two
 ```
 ```{toctree}
 :caption: "User's documentation"
@@ -31,4 +32,5 @@ quick_start
 fre
 feature
 personal
+FAQ
 ```

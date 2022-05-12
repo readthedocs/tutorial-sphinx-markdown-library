@@ -1,4 +1,4 @@
-# 第4章 个人功能
+# 第5章 个人功能
 
 ## 用户信息
 
@@ -15,4 +15,8 @@
 - 用户可使用的应用
 ## 个性化配置
 
+![](figs/personal/personal-config.png)
+
 ## 用户账单
+
+![](figs/personal/bill.png)
