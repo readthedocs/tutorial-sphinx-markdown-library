@@ -10,8 +10,6 @@
 # simforge documentation
 欢迎使用  “神工坊”  高性能仿真平台用户门户手册。本手册提供的信息可以帮助您快速了解  “神工坊”  高性能仿真平台用户门户，并能够指导您开始使用  “神工坊”  高性能仿真平台用户门户。
 
-{ref}`快速上手示例`
-
 %Check out {doc}`/usage` for further information,
 %and {ref}`Installation` for installation instructions.
 
@@ -20,10 +18,16 @@
 %```
 
 ```{toctree}
-:caption: "目录"
+:caption: "First Step"
 :maxdepth: 3
-
-quick_start
-%usage
-
+chapter_one
+chapter_two
+```
+```{toctree}
+:caption: "User's documentation"
+:maxdepth: 3
+fre
+feature
+personal
+FAQ
 ```
