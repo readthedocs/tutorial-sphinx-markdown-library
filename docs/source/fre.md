@@ -73,12 +73,15 @@ GUI模式下，图形界面分为VDI方式和VNC方式。前者需付费开通{r
 
 ### 远程桌面开通
 选择规格，点击开通。
+
 ![](figs/fre/vdi-open.png)
 ### 远程桌面退订
 点击其他功能按钮 > 远程桌面 > 退订
+
 ![](figs/fre/vdi-close.png)
 ### 远程桌面使用
 远程桌面为Linux虚拟机，使用方式与一般Linux桌面相同相同。
+
 ![](figs/fre/centos.png)
 ## 作业管理
 
