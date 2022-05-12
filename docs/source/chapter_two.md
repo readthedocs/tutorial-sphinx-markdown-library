@@ -43,6 +43,9 @@ b）点击登录，即可进入用户门户
 
 ![](figs/userportal.png)
 
+![](figs/fre/desktop-1.png)
+
+
 ### 用户退出
 
 a）单击topbar 右上角 用户管理 按钮，下拉框选择 退出，弹窗 单击 确定按钮，完成用户的退出
