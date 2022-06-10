@@ -8,25 +8,41 @@
 
 远程桌面提供给用户一个具备图形界面的**Linux虚拟机**，图形应用通过GPU渲染后会显示在远程桌面中。用户还可以在远程桌面中通过命令行执行相关命令，如程序编译、运行、脚本执行等，目的是提供**更方便、更灵活、更高效**的集群使用方式。远程桌面挂载了用户的存储空间，可直接通过命令行访问存储目录。
 
-1. 高性能图形应用
-2. 自行编写脚本（批量作业、前后处理）
-3. 自行编写、编译程序，提交集群计算
+远程桌面适用于以下场景
+
+1. 大规模仿真前后处理，需要流畅、清晰图形显示和操作
+2. 需要自行编写脚本实现作业批量提交运行
+3. 自研程序需要在线编译，并运行在神工坊集群上
 
 
 
 ### 远程桌面开通
 
-点击![](figs/fre/vdi.png)进入远程桌面，选择规格，点击开通。
+点击dock栏![](figs/fre/vdi.png)进入远程桌面开通界面，选择规格，点击**开通**。
 
 ![](figs/fre/vdi-open.png)
+
 ### 远程桌面退订
-点击其他功能按钮 > 远程桌面 > 退订
+点击topbar**功能管理***按钮，下拉框选择**远程桌面**， 弹窗中显示已开通的远程桌面规格
 
 ![](figs/fre/vdi-close.png)
+
+**连接：** 进入远程桌面
+
+**退订：** 退订远程桌面
+
+![](figs/notice.png)**注意**：退订后远程桌面内运行的作业，进程将全部结束，请谨慎操作！
+
 ### 远程桌面使用
 
 #### 基本使用
-远程桌面为Linux虚拟机，使用方式与一般Linux桌面相同相同。
+**进入远程桌面：**
+
+**方法一：** 单击dock栏**远程桌面**图标，进入已开通的远程桌面
+
+**方法二：** 单击topbar**功能管理**图标，下拉框选择**远程桌面**， 弹窗中选择**连接**按钮，进入已开通远程桌面
+
+远程桌面是一个带有图形界面的Linux虚拟机，基本使用同linux发行版 Centos或者Ubuntu一致，详细请参考相关使用教程。
 #### 递交作业
 
 ##### 查看队列资源
@@ -48,7 +64,87 @@ csub -I -q q_x86_sf -n 8 -o %J.out -e %J.error <command>
 ```bash
 man csub
 ```
+#### 客户端模式使用远程桌面
+远程桌面可以通过客户端模式访问，基于客户端，能够给用户提供更加流畅、清晰的图形操作体验。
+
+客户端连接前，请先在平台开通远程桌面
+**客户端下载**
+用户可以通过以下网站，选择相应版本，下载客户端：
+
+https://customerconnect.vmware.com/en/downloads/info/slug/desktop_end_user_computing/vmware_horizon_clients/horizon_8?cd=1&hl=en&ct=clnk&gl=us
+
+下载后进行安装
+
+**客户端设置**
+用户启动客户端后，首先进行客户端的设置，点击右上角下拉框，选择**配置SSL**，弹窗中选择**不验证服务器身份证书**，确定
+
+![](figs/feature/VDI-client-set.png)
+
+**VDI连接**
+单击新建服务器，弹窗里输入VDI服务器地址：studio.hpc.simforge.cn
+
+![](figs/feature/VDI-client-createserver.png)
+
+单击连接,随后弹窗中输入平台账号密码:
+
+![](figs/feature/VDI-client-login.png)
+
+登录后即可看到在平台开通的VDI，点击进入远程桌面
+
 #### 编译程序
+
+##### 加载相关库
+- 查看已安装的包
+```bash
+spack find # 查看已安装的包
+
+==> 74 installed packages
+-- linux-centos7-cascadelake / gcc@10.2.0 -----------------------
+autoconf@2.69                libbsd@0.11.3    perl@5.34.0
+autoconf-archive@2019.01.06  libffi@3.3       pkgconf@1.8.0
+automake@1.16.3              libiconv@1.16    python@3.9.9
+berkeley-db@18.1.40          libmd@1.0.3      readline@8.1
+bzip2@1.0.8                  libsigsegv@2.13  sqlite@3.36.0
+cmake@3.22.1                 libtool@2.4.6    tar@1.34
+diffutils@3.8                libxml2@2.9.12   texinfo@6.5
+expat@2.4.1                  m4@1.4.19        util-linux-uuid@2.36.2
+gcc@10.2.0                   mpc@1.1.0        xz@5.2.5
+gdbm@1.19                    mpfr@4.1.0       zlib@1.2.11
+gettext@0.21                 ncurses@6.2      zstd@1.5.0
+gmp@6.2.1                    openssl@1.1.1l
+
+-- linux-centos7-haswell / gcc@4.8.5 ----------------------------
+autoconf@2.69         libevent@2.1.12    openmpi@4.1.2
+automake@1.16.3       libfabric@1.14.0   openssh@8.7p1
+berkeley-db@18.1.40   libffi@3.3         openssl@1.1.1l
+bzip2@1.0.8           libiconv@1.16      perl@5.34.0
+cmake@3.22.1          libmd@1.0.3        pkgconf@1.8.0
+diffutils@3.8         libpciaccess@0.16  python@3.9.9
+expat@2.4.1           libsigsegv@2.13    readline@8.1
+findutils@4.8.0       libtool@2.4.6      sqlite@3.36.0
+gdbm@1.19             libxml2@2.9.12     tar@1.34
+gettext@0.21          m4@1.4.19          util-linux-uuid@2.36.2
+hwloc@2.6.0           mpich@3.4.2        util-macros@1.19.3
+libbsd@0.11.3         ncurses@6.2        xz@5.2.5
+libedit@3.1-20210216  numactl@2.0.14     zlib@1.2.11
+```
+- 加载编译器
+```bash
+spack load gcc@10.2.0 # 加载10.2.0版本gcc编译器
+```
+- 多个版本库的加载
+```bash
+spack load cmake # 加载cmake提示有多个版本的包
+
+==> Error: cmake matches multiple packages.
+  Matching packages:
+    qapiaa2 cmake@3.22.1%gcc@4.8.5 arch=linux-centos7-haswell
+    7latf3f cmake@3.22.1%gcc@10.2.0 arch=linux-centos7-cascadelake
+  Use a more specific spec.
+
+spack load cmake@3.22.1%gcc@10.2.0 # 加载gcc-10.2.0编译的版本
+```
+
 ## 共享空间
 
 对于企业用户，同一组织的成员能够创建共享空间分享文件给其他人。文件的权限可以灵活设置。
@@ -70,7 +166,7 @@ man csub
 
 ![](figs/feature/share_set.png)
 
-###共享空间删除
+### 共享空间删除
 
 **右击** 已创建的共享空间，单击删除共享空间，弹窗选择 **确定**
 
@@ -136,11 +232,59 @@ man csub
 
 熟悉命令行的用户，可以使用命令终端功能来操作文件、提交作业等。
 
+此功能正在测试中，敬请期待！
+
 ## 私有应用
 
-用户可以发布自己的应用。可供本人、组织成员甚至其他人使用应用。
+神工坊应用商城可以支持用户自研应用的入驻，通过平台私有应用发布功能进行个人应用的在线发布。
 
-![](figs/feature/personal_app.png)
+平台目前私有应用发布流程为：用户通过远程桌面虚拟机完成软件在线编译部署->在线提交发布申请->管理员审核->应用上线。
+
+### 界面导航
+单击topbar，个人信息按钮，下拉框选择私有应用，进入私有应用界面
+
+![](figs/feature/personal_appstart.png)
+
+私用应用界面顶栏有三个按钮，分别为：
+
+{ref}`申请应用发布`： 提交应用发布申请
+
+{ref}`申请文档更新`：对已发布的应用进行用户帮助文档的更新
+
+{ref}`申请应用下线`：下线已发布的应用
+
+顶栏下方显示了用户私有应用列表，列表有**应用名称、应用类型、应用价格、应用状态、审核状态、审核者名称、应用发布时间、文档更新时间**属性
+
+### 申请应用发布
+单击按钮，进入应用发布申请界面，填写相关参数后，点击**提交**完成发布申请：
+
+![](figs/feature/personal_appRelease.png)
+
+发布申请参数说明：
+
+**应用名称：** 发布应用的名称，长度不超过16位，仅支持中文、英文、数字和-符合；
+
+**应用类别：** 可选择图形应用，或者仿真计算；
+
+**应用路径：** 应用在平台的安装路径；
+
+**应用价格：** 应用标准定价，单位为 元/核小时；
+
+**应用图标:** 应用图标，白底为背景，建议图片长宽一致，否则会有变形情况
+
+**配置文件：** 上传应用安装部署、启动等相关配置说明文件，供管理员进行应用集成
+
+**使用文件：** 上传应用的用户手册、演示案例等用户帮助文档，方便其他用户快速上手使用
+
+**应用描述：** 对应用的功能进行简述，方便其他用户快速了解选择
+
+### 申请文档更新
+
+单击按钮，进入文档更新申请页面，重新上传文档，单击**更新**按钮，申请提交:
+
+![](figs/personal/personal_app_update_help_doc.png)
+
+
 
 ## 组织管理
 
