@@ -64,6 +64,7 @@ csub -I -q q_x86_sf -n 8 -o %J.out -e %J.error <command>
 ```bash
 man csub
 ```
+<<<<<<< HEAD
 #### 客户端模式使用远程桌面
 远程桌面可以通过客户端模式访问，基于客户端，能够给用户提供更加流畅、清晰的图形操作体验。
 
@@ -90,6 +91,61 @@ https://customerconnect.vmware.com/en/downloads/info/slug/desktop_end_user_compu
 ![](figs/feature/VDI-client-login.png)
 
 登录后即可看到在平台开通的VDI，点击进入远程桌面
+=======
+#### 编译程序
+
+##### 加载相关库
+- 查看已安装的包
+```bash
+spack find # 查看已安装的包
+
+==> 74 installed packages
+-- linux-centos7-cascadelake / gcc@10.2.0 -----------------------
+autoconf@2.69                libbsd@0.11.3    perl@5.34.0
+autoconf-archive@2019.01.06  libffi@3.3       pkgconf@1.8.0
+automake@1.16.3              libiconv@1.16    python@3.9.9
+berkeley-db@18.1.40          libmd@1.0.3      readline@8.1
+bzip2@1.0.8                  libsigsegv@2.13  sqlite@3.36.0
+cmake@3.22.1                 libtool@2.4.6    tar@1.34
+diffutils@3.8                libxml2@2.9.12   texinfo@6.5
+expat@2.4.1                  m4@1.4.19        util-linux-uuid@2.36.2
+gcc@10.2.0                   mpc@1.1.0        xz@5.2.5
+gdbm@1.19                    mpfr@4.1.0       zlib@1.2.11
+gettext@0.21                 ncurses@6.2      zstd@1.5.0
+gmp@6.2.1                    openssl@1.1.1l
+
+-- linux-centos7-haswell / gcc@4.8.5 ----------------------------
+autoconf@2.69         libevent@2.1.12    openmpi@4.1.2
+automake@1.16.3       libfabric@1.14.0   openssh@8.7p1
+berkeley-db@18.1.40   libffi@3.3         openssl@1.1.1l
+bzip2@1.0.8           libiconv@1.16      perl@5.34.0
+cmake@3.22.1          libmd@1.0.3        pkgconf@1.8.0
+diffutils@3.8         libpciaccess@0.16  python@3.9.9
+expat@2.4.1           libsigsegv@2.13    readline@8.1
+findutils@4.8.0       libtool@2.4.6      sqlite@3.36.0
+gdbm@1.19             libxml2@2.9.12     tar@1.34
+gettext@0.21          m4@1.4.19          util-linux-uuid@2.36.2
+hwloc@2.6.0           mpich@3.4.2        util-macros@1.19.3
+libbsd@0.11.3         ncurses@6.2        xz@5.2.5
+libedit@3.1-20210216  numactl@2.0.14     zlib@1.2.11
+```
+- 加载编译器
+```bash
+spack load gcc@10.2.0 # 加载10.2.0版本gcc编译器
+```
+- 多个版本库的加载
+```bash
+spack load cmake # 加载cmake提示有多个版本的包
+
+==> Error: cmake matches multiple packages.
+  Matching packages:
+    qapiaa2 cmake@3.22.1%gcc@4.8.5 arch=linux-centos7-haswell
+    7latf3f cmake@3.22.1%gcc@10.2.0 arch=linux-centos7-cascadelake
+  Use a more specific spec.
+
+spack load cmake@3.22.1%gcc@10.2.0 # 加载gcc-10.2.0编译的版本
+```
+>>>>>>> deb635043c8b9368689b490eafb4494fe1868044
 
 ## 共享空间
 
