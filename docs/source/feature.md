@@ -64,7 +64,32 @@ csub -I -q q_x86_sf -n 8 -o %J.out -e %J.error <command>
 ```bash
 man csub
 ```
-#### 编译程序
+#### 客户端模式使用远程桌面
+远程桌面可以通过客户端模式访问，基于客户端，能够给用户提供更加流畅、清晰的图形操作体验。
+
+客户端连接前，请先在平台开通远程桌面
+**客户端下载**
+用户可以通过以下网站，选择相应版本，下载客户端：
+
+https://customerconnect.vmware.com/en/downloads/info/slug/desktop_end_user_computing/vmware_horizon_clients/horizon_8?cd=1&hl=en&ct=clnk&gl=us
+
+下载后进行安装
+
+**客户端设置**
+用户启动客户端后，首先进行客户端的设置，点击右上角下拉框，选择**配置SSL**，弹窗中选择**不验证服务器身份证书**，确定
+
+![](figs/feature/VDI-client-set.png)
+
+**VDI连接**
+单击新建服务器，弹窗里输入VDI服务器地址：studio.hpc.simforge.cn
+
+![](figs/feature/VDI-client-createserver.png)
+
+单击连接,随后弹窗中输入平台账号密码:
+
+![](figs/feature/VDI-client-login.png)
+
+登录后即可看到在平台开通的VDI，点击进入远程桌面
 
 ## 共享空间
 
@@ -208,10 +233,6 @@ man csub
 ## 组织管理
 
 对于企业用户，在平台有多个用户，企业**组织管理员**可以对组织用户进行管理、查看组织总体账单等。
-
-![](figs/personal/personal_appRelease.png)
-
-
 
 ### 用户管理
 
