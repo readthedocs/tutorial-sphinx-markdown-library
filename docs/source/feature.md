@@ -31,7 +31,7 @@
 
 **退订：** 退订远程桌面
 
-![](figs/notice.png) **注意：**，退订后远程桌面内运行的作业，进程将全部结束，请谨慎操作！
+![](figs/notice.png)**注意**：退订后远程桌面内运行的作业，进程将全部结束，请谨慎操作！
 
 ### 远程桌面使用
 
@@ -64,7 +64,6 @@ csub -I -q q_x86_sf -n 8 -o %J.out -e %J.error <command>
 ```bash
 man csub
 ```
-<<<<<<< HEAD
 #### 客户端模式使用远程桌面
 远程桌面可以通过客户端模式访问，基于客户端，能够给用户提供更加流畅、清晰的图形操作体验。
 
@@ -91,7 +90,7 @@ https://customerconnect.vmware.com/en/downloads/info/slug/desktop_end_user_compu
 ![](figs/feature/VDI-client-login.png)
 
 登录后即可看到在平台开通的VDI，点击进入远程桌面
-=======
+
 #### 编译程序
 
 ##### 加载相关库
@@ -145,7 +144,6 @@ spack load cmake # 加载cmake提示有多个版本的包
 
 spack load cmake@3.22.1%gcc@10.2.0 # 加载gcc-10.2.0编译的版本
 ```
->>>>>>> deb635043c8b9368689b490eafb4494fe1868044
 
 ## 共享空间
 
