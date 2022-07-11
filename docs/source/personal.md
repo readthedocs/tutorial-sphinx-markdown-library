@@ -52,3 +52,7 @@
 ## 用户账单
 
 ![](figs/personal/bill.png)
+
+## 产品价格
+
+![](figs/personal/price.png)

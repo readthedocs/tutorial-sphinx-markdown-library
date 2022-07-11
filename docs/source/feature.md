@@ -68,10 +68,13 @@ man csub
 远程桌面可以通过客户端模式访问，基于客户端，能够给用户提供更加流畅、清晰的图形操作体验。
 
 客户端连接前，请先在平台开通远程桌面
+
 **客户端下载**
+
 用户可以通过以下网站，选择相应版本，下载客户端：
 
-https://customerconnect.vmware.com/en/downloads/info/slug/desktop_end_user_computing/vmware_horizon_clients/horizon_8?cd=1&hl=en&ct=clnk&gl=us
+[https://customerconnect.vmware.com/en/downloads/info/slug/desktop_end_user_computing/vmware_horizon_clients/horizon_8?cd=1&hl=en&ct=clnk&gl=us](https://customerconnect.vmware.com/en/downloads/info/slug/desktop_end_user_computing/vmware_horizon_clients/horizon_8?cd=1&hl=en&ct=clnk&gl=us)
+
 
 下载后进行安装
 
