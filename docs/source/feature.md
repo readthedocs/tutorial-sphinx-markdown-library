@@ -235,6 +235,8 @@ spack load cmake@3.22.1%gcc@10.2.0 # 加载gcc-10.2.0编译的版本
 
 命令终端是一个命令行程序，使用linux命令进行操作，可以看做是个网页版的远程终端。熟悉命令行的用户，可以使用命令终端功能来操作文件、提交作业等。
 
+### 基本操作
+
 在功能管理中选择命令终端，点击后打开命令终端界面。
 
 ![](figs/feature/ttyd.png)
@@ -250,6 +252,114 @@ spack load cmake@3.22.1%gcc@10.2.0 # 加载gcc-10.2.0编译的版本
 
 ![](figs/feature/exit_2.png)
 
+### 加载编译器和库
+
+#### spack 方式
+- 初始化
+```bash
+source /share/simforge_share/apps/Spack/share/spack/setup-env.sh # 初始化spack命令
+```
+- 查看已安装的包
+
+```bash
+spack find # 查看已安装的包
+
+==> 74 installed packages
+-- linux-centos7-cascadelake / gcc@10.2.0 -----------------------
+autoconf@2.69                libbsd@0.11.3    perl@5.34.0
+autoconf-archive@2019.01.06  libffi@3.3       pkgconf@1.8.0
+automake@1.16.3              libiconv@1.16    python@3.9.9
+berkeley-db@18.1.40          libmd@1.0.3      readline@8.1
+bzip2@1.0.8                  libsigsegv@2.13  sqlite@3.36.0
+cmake@3.22.1                 libtool@2.4.6    tar@1.34
+diffutils@3.8                libxml2@2.9.12   texinfo@6.5
+expat@2.4.1                  m4@1.4.19        util-linux-uuid@2.36.2
+gcc@10.2.0                   mpc@1.1.0        xz@5.2.5
+gdbm@1.19                    mpfr@4.1.0       zlib@1.2.11
+gettext@0.21                 ncurses@6.2      zstd@1.5.0
+gmp@6.2.1                    openssl@1.1.1l
+
+-- linux-centos7-haswell / gcc@4.8.5 ----------------------------
+autoconf@2.69         libevent@2.1.12    openmpi@4.1.2
+automake@1.16.3       libfabric@1.14.0   openssh@8.7p1
+berkeley-db@18.1.40   libffi@3.3         openssl@1.1.1l
+bzip2@1.0.8           libiconv@1.16      perl@5.34.0
+cmake@3.22.1          libmd@1.0.3        pkgconf@1.8.0
+diffutils@3.8         libpciaccess@0.16  python@3.9.9
+expat@2.4.1           libsigsegv@2.13    readline@8.1
+findutils@4.8.0       libtool@2.4.6      sqlite@3.36.0
+gdbm@1.19             libxml2@2.9.12     tar@1.34
+gettext@0.21          m4@1.4.19          util-linux-uuid@2.36.2
+hwloc@2.6.0           mpich@3.4.2        util-macros@1.19.3
+libbsd@0.11.3         ncurses@6.2        xz@5.2.5
+libedit@3.1-20210216  numactl@2.0.14     zlib@1.2.11
+```
+- 加载编译器
+```bash
+spack load gcc@10.2.0 # 加载10.2.0版本gcc编译器
+```
+- 多个版本库的选择
+```bash
+spack load cmake # 加载cmake提示有多个版本的包
+
+==> Error: cmake matches multiple packages.
+  Matching packages:
+    qapiaa2 cmake@3.22.1%gcc@4.8.5 arch=linux-centos7-haswell
+    7latf3f cmake@3.22.1%gcc@10.2.0 arch=linux-centos7-cascadelake
+  Use a more specific spec.
+
+spack load cmake@3.22.1%gcc@10.2.0 # 加载gcc-10.2.0编译的版本
+spack load /qapiaa2 # 根据唯一识别码加载编译器qapiaa2 cmake@3.22.1%gcc@4.8.5 arch=linux-centos7-haswell
+```
+#### module方式
+- 查看已安装的库
+```bash
+module load + TAB
+```
+![](figs/feature/ttyd_module.png)
+
+- 加载程序包
+
+```bash
+module load Intel/parallel_studio_xe_2018/2018 # 加载Intel2018程序包
+```
+
+### 递交作业
+
+#### 查看队列资源
+```bash
+aip queue info
+```
+#### csub任务提交命令
+```bash
+csub -I -q q_x86_sf -n 8 -o %J.out -e %J.error <command>
+```
+- -I：交互式。程序输出会打印到终端，终端关闭则程序终止运行。
+- -q：后接队列名，如q_x86_sf
+- -n：后接程序运行使用核心数
+- -o：后接文件名，将输出打印至该文件中
+- -e：后接文件名，将错误信息打印至该文件中
+- command：Linux系统运行程序的命令
+
+更多命令参数请查看csub文档：
+```bash
+man csub
+```
+#### 递交MPI作业
+- 基于MPICH的MPI实现
+包括Intel MPI、MPICH、MVAPICH
+```bash
+spack load mpich@3.4.2%gcc@4.8.5 # 加载mpich-3.4.2
+module load Intel/parallel_studio_xe_2018/2018 # 加载Intel2018程序包
+csub -n 64 mpirun ./myprogram
+```
+
+- 基于OpenMPI的MPI实现 
+包括OpenMPI、Platform/HP/IBM MPI
+```bash
+spack load openmpi@4.1.2%gcc@4.8.5 # 加载openmpi-4.1.2
+csub -n 64 ompi-mpirun ./myprogram
+```
 ## 私有应用
 
 神工坊应用商城可以支持用户自研应用的入驻，通过平台私有应用发布功能进行个人应用的在线发布。
