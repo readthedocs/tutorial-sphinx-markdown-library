@@ -49,7 +49,7 @@
 ![](figs/personal/charge.png)
 
 - **授权额度**：用户可以透支的金额。
-- **充值**：点击充值，弹出充值申请窗口。有在线充值和本地充值。
+- **充值**：点击充值，弹出充值申请窗口。支持在线充值和本地充值。
 - **在线充值**：点击在线充值，选择充值额度，可使用支付宝或微信进行充值。点击去充值后跳转至支付界面，支付宝支付可扫码支付或登录账号支付，微信支付可扫码支付，完成支付后实时到账。
 
 ![](figs/personal/pay.png)
@@ -58,14 +58,14 @@
 
 ![](figs/personal/charge_application_2.png)
 
-充值功能也可通过点击功能区的**¥**，即可进行充值
+充值功能也可通过点击右上角功能区的![](figs/personal/pay3.png)，即可进行充值。
 
-![](figs/personal/pay2.png)
-
+<div align=center><img src="figs/personal/pay2.png"></div>
 
 - **查看计费价格**：点击查看计费价格后，弹出计费价格窗口，可查看通用队列、特殊队列、远程桌面和应用的计费价格。
 
-![](figs/personal/price_2.png)
+![](figs/personal/price_2.png#pic_center)
+
 
 ## 用户账单
 
