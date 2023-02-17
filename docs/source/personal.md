@@ -59,7 +59,8 @@
 ![](figs/personal/charge_application_2.png)
 
 
-充值功能也可通过点击右上角功能区的 ![](figs/personal/pay3.png) ，即可进行充值。
+
+充值功能也可通过点击右上角功能区的 ![](figs/personal/pay3.png) 按钮，即可进行充值。
 
 
 ![](figs/personal/pay2.png)
