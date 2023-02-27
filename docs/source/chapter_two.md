@@ -254,7 +254,7 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 
 
 ### 方式一：使用命令终端安装
-点击平台界面右上角的功能区，进入命令终端，可以使用命令行（Linux操作系统）进行软件安装。
+点击平台界面右上角的功能区，进入命令终端，可以使用命令行（Linux操作系统）进行软件安装。如安装时需加载编译器和库，加载方式见 {ref}`加载编译器和库`。
 
 ![](figs/install_linux_1.png)
 
@@ -271,25 +271,35 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 
 ### 安装案例
 
-本次安装以使用图形界面安装Abaqus 614版本软件为例：
+本次安装以使用图形界面安装Abaqus 614版本软件为例(如其他软件需加载编译器或库，加载方式与使用命令终端安装的加载方式相同)：
 
-**1）** 上传Abaqus 614的安装包并进行解压
+**1）** 在右上角的功能区中，点击数据管理，进入个人目录，上传软件安装包。
+
+![](figs/install_Abaqus_9.png)
+
+**2）** 进入远程桌面，点击桌面的Home图标，进入个人目录，找到软件安装包所在位置，点击鼠标右键，选择Open in Terminal,打开命令终端。
+
+![](figs/install_Abaqus_10.png)
+
+**3）** 解压软件安装包。
+解压zip压缩包命令：unzip xxx.zip
+解压tar压缩包命令：tar -xf xxx.tar
 
 ![](figs/install_Abaqus_1.png)
 
-**2）** 使用命令“/share/ xxx /Abaqus/lnx86_64/setup”（需使用绝对路径）。提示需TMPDIR路径时，使用软件安装位置的路径即可，完成后即可进入Abaqus614的安装界面。
+**4）** 使用命令“/share/ xxx /Abaqus/lnx86_64/setup”（需使用绝对路径）。提示需TMPDIR路径时，使用软件安装位置的路径即可，完成后即可进入Abaqus614的安装界面。
 
 ![](figs/install_Abaqus_2.png)
 
-**3）** 点击Next按钮，Installation type阶段，选择Abaqus Product，然后点击Next。
+**5）** 点击Next按钮，Installation type阶段，选择Abaqus Product，然后点击Next。
 
 ![](figs/install_Abaqus_3.png)
 
-**4）** 在License server中，在License server 1(REQUIRED)中输入27011@hostname，hostname为本机名，（可使用hostname命令进行查询）,之后点击Next。
+**4）** 在License server中，根据软件官方需求，在License server 1(REQUIRED)中输入相应内容，（如需使用本机名，可使用hostname命令进行查询）,之后点击Next。
 
 ![](figs/install_Abaqus_4.png)
 
-**5）** 在Abaqus license servers中，输入“27011@hostname”，然后点击Next。
+**5）** 在Abaqus license servers中，输入官方需求内容，然后点击Next。
 
 ![](figs/install_Abaqus_5.png)
 
@@ -301,15 +311,21 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 
 ![](figs/install_Abaqus_7.png)
 
-### 软件使用
+### 安装软件使用
 
-以安装的Abaqus 614 CAE为例
-图形界面启动的命令：/share/ xxx /Abaqus/Commands/abaqus cae
-如需使用GPU启动，命令行提交的命令为：vglrun /share/ xxx /Abaqus/Commands/abaqus cae
+以安装的Abaqus 614为例。
+如需要使用软件进行前处理工作，图形界面启动的命令：/share/ xxx /Abaqus/Commands/abaqus cae
 
+如需使用GPU启动图形界面，命令为：vglrun /share/ xxx /Abaqus/Commands/abaqus cae
 
-命令行本地提交作业的方式为：/share/ xxx /Abaqus/Commands/abaqus job=xxxx input=xxxx.inp cpus=xx int
+如果只需要提交作业的话，除了使用图形界面提交，还可使用命令行进行本地提交作业。命令为（适用于小规模作业）：/share/ xxx /Abaqus/Commands/abaqus job=xxxx input=xxxx.inp cpus=xx int
 
 ![](figs/install_Abaqus_8.png)
 
-如需使用平台的计算队列进行计算，提交方式见 {ref}`命令终端`
+如需使用大规模计算，命令为csub -I -q q_x86_sf -n 8 /share/ xxx /Abaqus/Commands/abaqus job=xxxx input=xxxx.inp cpus=xx int
+
+- -I：交互式。程序输出会打印到终端，终端关闭则程序终止运行。
+- -q：后接队列名，如q_x86_sf
+- -n：后接程序运行使用核心数
+
+详细提交方式见 {ref}`递交作业`
