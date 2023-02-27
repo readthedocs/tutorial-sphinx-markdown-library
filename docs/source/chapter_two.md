@@ -246,3 +246,70 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 **d）启动软件：** 双击桌面图标，此时CFD-Post将以VNC模式启动
 
 ![](figs/CFD-Post-VNC-start.png)
+
+
+##  软件安装
+
+如果在应用商城没有找到需要的仿真软件，平台也支持软件安装，主要是通过以下两种方式：
+
+
+### 方式一：使用命令终端安装
+点击平台界面右上角的功能区，进入命令终端，可以使用命令行（Linux操作系统）进行软件安装。
+
+![](figs/install_linux_1.png)
+
+![](figs/install_linux_2.png)
+
+### 方式二：使用图形界面安装
+开通并连接远程桌面后，进入centos 7.9的图形桌面，可以使用图形界面进行安装。
+
+![](figs/install_gui_1.png)
+
+![](figs/install_gui_2.png)
+
+![](figs/install_gui_3.png)
+
+### 安装案例
+
+本次安装以使用图形界面安装Abaqus 614版本软件为例：
+
+**1）** 上传Abaqus 614的安装包并进行解压
+
+![](figs/install_Abaqus_1.png)
+
+**2）** 使用命令“/share/ xxx /Abaqus/lnx86_64/setup”（需使用绝对路径）。提示需TMPDIR路径时，使用软件安装位置的路径即可，完成后即可进入Abaqus614的安装界面。
+
+![](figs/install_Abaqus_2.png)
+
+**3）** 点击Next按钮，Installation type阶段，选择Abaqus Product，然后点击Next。
+
+![](figs/install_Abaqus_3.png)
+
+**4）** 在License server中，在License server 1(REQUIRED)中输入27011@hostname，hostname为本机名，（可使用hostname命令进行查询）,之后点击Next。
+
+![](figs/install_Abaqus_4.png)
+
+**5）** 在Abaqus license servers中，输入“27011@hostname”，然后点击Next。
+
+![](figs/install_Abaqus_5.png)
+
+**6）** Installation directory阶段，选择安装路径。点击Next后，点击Install。
+
+![](figs/install_Abaqus_6.png)
+
+**7）** 终端出现finished字样，即可使用Abaqus614了。
+
+![](figs/install_Abaqus_7.png)
+
+### 软件使用
+
+以安装的Abaqus 614 CAE为例
+图形界面启动的命令：/share/ xxx /Abaqus/Commands/abaqus cae
+如需使用GPU启动，命令行提交的命令为：vglrun /share/ xxx /Abaqus/Commands/abaqus cae
+
+
+命令行本地提交作业的方式为：/share/ xxx /Abaqus/Commands/abaqus job=xxxx input=xxxx.inp cpus=xx int
+
+![](figs/install_Abaqus_8.png)
+
+如需使用平台的计算队列进行计算，提交方式见 {ref}`命令终端`
