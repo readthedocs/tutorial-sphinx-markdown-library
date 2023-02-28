@@ -21,15 +21,15 @@ b）单击平台入口，进入平台注册登录页面:
 
 ![](figs/register.png)
 
-b）点击 用户注册 进入注册界面，首先输入用户名：
+c）点击 用户注册 进入注册界面，首先输入用户名和验证码：
 
 ![](figs/set-username.png)
 
-c）点击继续，进入注册信息填写界面，填写注册信息，验证码会发送至注册邮箱:
+d）点击继续，进入注册信息填写界面，填写注册信息，邮箱验证码会发送至注册邮箱:
 
 ![](figs/register-info.png)
 
-d）点击注册，弹出注册成功提醒，稍后会发送账号及密码至注册邮箱：（此时账户为试用用户，想成为正式用户，需进行{ref}`正式用户申请`）
+e）点击注册，弹出注册成功提醒，稍后会发送账号及密码至注册邮箱：（此时账户为试用用户，想成为正式用户，需进行{ref}`正式用户申请`）
 
 ![](figs/register-finished.png)
 
@@ -55,9 +55,35 @@ a）单击topbar 右上角 用户管理 按钮，下拉框选择 退出，弹窗
 
 ### 正式用户申请
 
-a）登录试用账户后，单击topbar 右上角 用户管理 按钮，下拉框选择 正式用户申请，进入转正信息填写界面，填写转正信息，填写完成后，点击 提交，等待管理员审核，审核通过后，即可成为正式用户。
+a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框选择 正式用户申请，进入转正信息填写界面，填写转正信息，填写完成后，点击提交，等待管理员审核，审核通过后，即可成为正式用户。
 
 ![](figs/application.png)
+
+
+
+### 正式用户权益
+
+相比于试用用户，正式用户拥有以下权益：
+1. 正式用户的应用商城中拥有更多的应用，可供正式用户订阅使用。
+2. 正式用户的并行核数没有上限。
+3. 正式用户享受更多的技术支持服务，包括但不限于专属技术顾问、软件安装协助等服务。
+
+
+<center>表 2-1 “神工坊“正式用户可订阅的更多应用</center>
+
+
+![](figs/appstore.png)
+
+
+### 重置密码
+
+用户忘记密码后，可在登录界面点击右下角的忘记密码。
+
+![](figs/password.png)
+
+输入注册账号时使用的邮箱，点击获取验证码，邮箱会收到验证码。输入验证码后，点击重置密码，邮箱会收到重置后的密码。
+
+![](figs/password1.png)
 
 ## 仿真计算
 
@@ -220,3 +246,86 @@ a）登录试用账户后，单击topbar 右上角 用户管理 按钮，下拉�
 **d）启动软件：** 双击桌面图标，此时CFD-Post将以VNC模式启动
 
 ![](figs/CFD-Post-VNC-start.png)
+
+
+##  软件安装
+
+如果在应用商城没有找到需要的仿真软件，平台也支持软件安装，主要是通过以下两种方式：
+
+
+### 方式一：使用命令终端安装
+点击平台界面右上角的功能区，进入命令终端，可以使用命令行（Linux操作系统）进行软件安装。如安装时需加载编译器和库，加载方式见 {ref}`加载编译器和库`。
+
+![](figs/install_linux_1.png)
+
+![](figs/install_linux_2.png)
+
+### 方式二：使用图形界面安装
+开通并连接远程桌面后，进入centos 7.9的图形桌面，可以使用图形界面进行安装。
+
+![](figs/install_gui_1.png)
+
+![](figs/install_gui_2.png)
+
+![](figs/install_gui_3.png)
+
+### 安装案例
+
+本次安装以使用图形界面安装Abaqus 614版本软件为例(如其他软件需加载编译器或库，加载方式与使用命令终端安装的加载方式相同)：
+
+**1）** 在右上角的功能区中，点击数据管理，进入个人目录，上传软件安装包。
+
+![](figs/install_Abaqus_9.png)
+
+**2）** 进入远程桌面，点击桌面的Home图标，进入个人目录，找到软件安装包所在位置，点击鼠标右键，选择Open in Terminal,打开命令终端。
+
+![](figs/install_Abaqus_10.png)
+
+**3）** 解压软件安装包。
+解压zip压缩包命令：unzip xxx.zip
+解压tar压缩包命令：tar -xf xxx.tar
+
+![](figs/install_Abaqus_1.png)
+
+**4）** 使用命令“/share/ xxx /Abaqus/lnx86_64/setup”（需使用绝对路径）。提示需TMPDIR路径时，使用软件安装位置的路径即可，完成后即可进入Abaqus614的安装界面。
+
+![](figs/install_Abaqus_2.png)
+
+**5）** 点击Next按钮，Installation type阶段，选择Abaqus Product，然后点击Next。
+
+![](figs/install_Abaqus_3.png)
+
+**4）** 在License server中，根据软件官方需求，在License server 1(REQUIRED)中输入相应内容，（如需使用本机名，可使用hostname命令进行查询）,之后点击Next。
+
+![](figs/install_Abaqus_4.png)
+
+**5）** 在Abaqus license servers中，输入官方需求内容，然后点击Next。
+
+![](figs/install_Abaqus_5.png)
+
+**6）** Installation directory阶段，选择安装路径。点击Next后，点击Install。
+
+![](figs/install_Abaqus_6.png)
+
+**7）** 终端出现finished字样，即可使用Abaqus614了。
+
+![](figs/install_Abaqus_7.png)
+
+### 安装软件使用
+
+以安装的Abaqus 614为例。
+如需要使用软件进行前处理工作，图形界面启动的命令：/share/ xxx /Abaqus/Commands/abaqus cae
+
+如需使用GPU启动图形界面，命令为：vglrun /share/ xxx /Abaqus/Commands/abaqus cae
+
+如果只需要提交作业的话，除了使用图形界面提交，还可使用命令行进行本地提交作业。命令为（适用于小规模作业）：/share/ xxx /Abaqus/Commands/abaqus job=xxxx input=xxxx.inp cpus=xx int
+
+![](figs/install_Abaqus_8.png)
+
+如需使用大规模计算，命令为csub -I -q q_x86_sf -n 8 /share/ xxx /Abaqus/Commands/abaqus job=xxxx input=xxxx.inp cpus=xx int
+
+- -I：交互式。程序输出会打印到终端，终端关闭则程序终止运行。
+- -q：后接队列名，如q_x86_sf
+- -n：后接程序运行使用核心数
+
+详细提交方式见 {ref}`递交作业`
