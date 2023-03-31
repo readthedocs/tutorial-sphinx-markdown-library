@@ -38,9 +38,11 @@
 #### 基本使用
 **进入远程桌面：**
 
-**方法一：** 单击dock栏**远程桌面**图标，进入已开通的远程桌面
+**方法一：** 单击dock栏**远程桌面**![](figs/fre/vdi.png)图标，进入已开通的远程桌面
 
 **方法二：** 单击topbar**功能管理**图标，下拉框选择**远程桌面**， 弹窗中选择**连接**按钮，进入已开通远程桌面
+
+![](figs/feature/vdi_sub.png)
 
 远程桌面是一个带有图形界面的Linux虚拟机，基本使用同linux发行版 Centos或者Ubuntu一致，详细请参考相关使用教程。
 #### 递交作业
@@ -49,21 +51,49 @@
 ```bash
 aip queue info
 ```
+
+![](figs/feature/aip_queue.png)
 ##### csub任务提交命令
+###### 通用作业提交，调度器自动分配节点
+
 ```bash
-csub -I -q q_x86_sf -n 8 -o %J.out -e %J.error <command>
+csub -I -q q_x86_sf -n 8 -o %J.out -e %J.error <command> # 交互提交
+csub -q q_x86_sf -n 8 -o %J.out -e %J.error <command> # 后台提交
 ```
 - -I：程序输出会打印到终端，终端关闭则程序终止运行。
 - -q：后接队列名，如q_x86_sf
 - -n：后接程序运行使用核心数
-- -o：后接文件名，将输出打印至该文件中
-- -e：后接文件名，将错误信息打印至该文件中
+- -o：后接文件名，将输出打印至该文件中。%J.out代表以作业号命名的文件，调度器自动生成
+- -e：后接文件名，将错误信息打印至该文件中。%J.error代表以作业号命名的文件，调度器自动生成
 - command：Linux系统运行程序的命令
+
+###### 跨节点作业提交，指定每节点核数
+```bash
+csub -I -q q_x86_sf -n 64 -R span[ptile=32] -o %J.out -e %J.error <command>
+```
+- -R span[ptile=32] 每节点核数为32
 
 更多命令参数请查看csub文档：
 ```bash
 man csub
 ```
+
+#### 递交MPI作业
+- 基于MPICH的MPI实现
+包括Intel MPI、MPICH、MVAPICH
+```bash
+spack load mpich@3.4.2%gcc@4.8.5 # 加载mpich-3.4.2
+module load Intel/parallel_studio_xe_2018/2018 # 加载Intel2018程序包
+csub -n 64 -q q_x86_sf mpirun ./myprogram
+```
+
+- 基于OpenMPI的MPI实现 
+包括OpenMPI、Platform/HP/IBM MPI
+```bash
+spack load openmpi@4.1.2%gcc@4.8.5 # 加载openmpi-4.1.2
+csub -n 64 -q q_x86_sf ompi-mpirun ./myprogram
+```
+
 #### 客户端模式使用远程桌面
 远程桌面可以通过客户端模式访问，基于客户端，能够给用户提供更加流畅、清晰的图形操作体验。
 
@@ -255,10 +285,7 @@ spack load cmake@3.22.1%gcc@10.2.0 # 加载gcc-10.2.0编译的版本
 ### 加载编译器和库
 
 #### spack 方式
-- 初始化
-```bash
-source /share/simforge_share/apps/Spack/share/spack/setup-env.sh # 初始化spack命令
-```
+
 - 查看已安装的包
 
 ```bash
@@ -314,7 +341,7 @@ spack load /qapiaa2 # 根据唯一识别码加载编译器qapiaa2 cmake@3.22.1%g
 #### module方式
 - 查看已安装的库
 ```bash
-module load + TAB
+module avail
 ```
 ![](figs/feature/ttyd_module.png)
 
@@ -330,16 +357,26 @@ module load Intel/parallel_studio_xe_2018/2018 # 加载Intel2018程序包
 ```bash
 aip queue info
 ```
+
+![](figs/feature/aip_queue.png)
 #### csub任务提交命令
+###### 通用作业提交，调度器自动分配节点
 ```bash
-csub -I -q q_x86_sf -n 8 -o %J.out -e %J.error <command>
+csub -I -q q_x86_sf -n 8 -o %J.out -e %J.error <command> # 交互提交
+csub -q q_x86_sf -n 8 -o %J.out -e %J.error <command> # 后台提交
 ```
 - -I：交互式。程序输出会打印到终端，终端关闭则程序终止运行。
 - -q：后接队列名，如q_x86_sf
 - -n：后接程序运行使用核心数
-- -o：后接文件名，将输出打印至该文件中
-- -e：后接文件名，将错误信息打印至该文件中
+- -o：后接文件名，将输出打印至该文件中。%J.out代表以作业号命名的文件，调度器自动生成
+- -e：后接文件名，将错误信息打印至该文件中。%J.error代表以作业号命名的文件，调度器自动生成
 - command：Linux系统运行程序的命令
+
+###### 跨节点作业提交，指定每节点核数
+```bash
+csub -I -q q_x86_sf -n 64 -R span[ptile=32] -o %J.out -e %J.error <command>
+```
+- -R span[ptile=32] 每节点核数为32
 
 更多命令参数请查看csub文档：
 ```bash
@@ -351,14 +388,14 @@ man csub
 ```bash
 spack load mpich@3.4.2%gcc@4.8.5 # 加载mpich-3.4.2
 module load Intel/parallel_studio_xe_2018/2018 # 加载Intel2018程序包
-csub -n 64 mpirun ./myprogram
+csub -n 64 -q q_x86_sf mpirun ./myprogram
 ```
 
 - 基于OpenMPI的MPI实现 
 包括OpenMPI、Platform/HP/IBM MPI
 ```bash
 spack load openmpi@4.1.2%gcc@4.8.5 # 加载openmpi-4.1.2
-csub -n 64 ompi-mpirun ./myprogram
+csub -n 64 -q q_x86_sf ompi-mpirun ./myprogram
 ```
 ## 私有应用
 
