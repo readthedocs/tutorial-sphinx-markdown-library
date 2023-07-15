@@ -43,4 +43,19 @@
 | 密级（secret_level） | 系统设置针对项目，作业，用户设置的安全等级。|
 | 应用实例 | 应用实例可以将用户的参数存储为实例，用户切换应用实例完成应用资源选择。|
 
+## 平台队列
 
+
+| 名称         |  所在集群 |    型号           |    集群资源（节点个数*每节点核心数）|
+|:-------:      | :----:    | :----:           |:----:      |  
+| q_x86_sfexper | 神工坊2.0本地AMD集群| AMD EPYC 7H12/7742  （CPU）          |             1*128    | 
+| q_x86_sf      | 神工坊2.0本地AMD集群| AMD EPYC 7H12/7742   （CPU）          |             8*128    | 
+|  GPU_sf       | 神工坊2.0本地集群|       （GPU）      |             104    |
+|  GPU_RTX      | 神工坊2.0本地集群|       （GPU）      |             40    |
+| q_x86_share   | 远程Intel集群（无锡）| Intel XeonE5-2680v3/ Xeon 8358  （CPU）       |    367*24     | 
+| q_x86_cn_sim  | 远程Intel集群（无锡）| Intel XeonE5-2680v3/ Xeon 8358   （CPU）      |    4*24     | 
+| q_amd_share   | 远程AMD集群（盐城）  | AMD EPYC 7H12        （CPU）         |             400*128    |
+| q_intel_share | 远程Intel集群（盐城）|                         （CPU）      |                       |
+| kshctest      | 远程国产海光集群（昆山）|Hygon C86 7185 32-core  Processor （CPU）  |                 |
+
+注：1. 远程队列目前仅支持非图形界面方式提交。 2. 仿真计算应用应使用到CPU队列，图形应用应使用到GPU队列。
