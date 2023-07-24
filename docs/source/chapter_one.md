@@ -43,19 +43,21 @@
 | 密级（secret_level） | 系统设置针对项目，作业，用户设置的安全等级。|
 | 应用实例 | 应用实例可以将用户的参数存储为实例，用户切换应用实例完成应用资源选择。|
 
-## 平台队列
+## 平台队列资源
+以下是目前神工坊2.0平台已经接入的硬件资源（更新时间2023.0724）：
+| 名称         |  队列类型|所在集群 |    型号规格          |    集群资源（节点个数\*每节点核心数\*每节点内存大小）|
+|:-------:      |:-------:     | :----:    | :----:           |:----:      |  
+| q_x86_sfexper | CPU计算队列| 神工坊2.0本地AMD集群（无锡超算）| AMD EPYC 7H12/7742  |     1\*128\*512G    | 
+| q_x86_sf      |CPU计算队列 |神工坊2.0本地AMD集群（无锡超算）| AMD EPYC 7H12/7742|     8\*128\*512G   | 
+|  GPU_sf       | GPU图形队列|神工坊2.0本地集群（无锡超算）| nvidia Quadro P400 |   1\*64\*128G     |
+|  GPU_RTX      |  GPU图形队列 |神工坊2.0本地集群（无锡超算）| nvidia Quadro RTX 4000|    1\*40\*512G    |
+| q_x86_share   |CPU计算队列 | 远程Intel集群（无锡超算）| Intel(R) Xeon(R) CPU E5-2680 v3 |    766\*24\*128G    | 
+| q_x86_cn_sim  |CPU计算队列 | 远程Intel集群（无锡超算）| Intel(R) Xeon(R) CPU E5-2680 v3 |    5\*24\*128G    | 
+| q_amd_share   |CPU计算队列 | 远程AMD集群（盐城分中心）  | AMD EPYC 7H12| 500\*128\*256G    |
+| q_intel_share |CPU计算队列 | 远程Intel集群（盐城分中心）| Intel Xeon 8358| 60\*64\*256G      |
+| kshctest      |CPU计算队列 | 远程国产海光集群 |Hygon C86 7185|  20\*32\*128G   |
 
+![](figs/notice.png) **注意** :
 
-| 名称         |  所在集群 |    型号规格          |    集群资源（节点个数*每节点核心数）|
-|:-------:      | :----:    | :----:           |:----:      |  
-| q_x86_sfexper | 神工坊2.0本地AMD集群| AMD EPYC 7H12 @2.6 GHz + 265GB / 7742 @2.6 GHz + 512GB （CPU）  |     1*128    | 
-| q_x86_sf      | 神工坊2.0本地AMD集群| AMD EPYC 7H12 @2.6 GHz + 265GB / 7742 @2.6 GHz + 512GB （CPU）  |     8*128    | 
-|  GPU_sf       | 神工坊2.0本地集群|       ???（GPU）      |             104     |
-|  GPU_RTX      | 神工坊2.0本地集群|       ???（GPU）      |             40      |
-| q_x86_share   | 远程Intel集群（无锡）| Intel XeonE5-2680v3 @2.5 GHz + 128GB / Xeon 8358 32-Core @2.6 GHz + 256GB  （CPU）       |    ?*24    | 
-| q_x86_cn_sim  | 远程Intel集群（无锡）| Intel XeonE5-2680v3 @2.5 GHz + 128GB / Xeon 8358 32-Core @2.6 GHz + 256GB   （CPU）       |    4*24    | 
-| q_amd_share   | 远程AMD集群（盐城）  | AMD EPYC 7H12 64core @2.6 GHz + 256GB      （CPU）| 500*128    |
-| q_intel_share | 远程Intel集群（盐城）| Intel Xeon 8358 32core @2.6 GHz + 256GB    （CPU）| 60*64      |
-| kshctest      | 远程国产海光集群（昆山）|Hygon C86 7185 32-core Processor @2.0GHz + 128GB （CPU）  |  ?*32   |
-
-注：1. 远程队列目前仅支持非图形界面方式提交。 2. 仿真计算应用需使用到CPU队列，图形应用需使用到GPU队列。
+1. 远程队列目前仅支持非图形界面方式提交。 
+2. 仿真计算应用需使用到CPU队列，图形应用需使用到GPU队列。
