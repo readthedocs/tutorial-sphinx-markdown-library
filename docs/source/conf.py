@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'simforge_docs'
-copyright = '2022, simforge'
+copyright = '2023, simforge'
 author = 'simforge应用组'
 
 # The full version, including alpha/beta/rc tags
