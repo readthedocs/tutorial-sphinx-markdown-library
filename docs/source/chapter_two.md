@@ -194,6 +194,8 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 **操作演示**
 **a）工程文件上传：**
 
+![文件上传](figs/script_sub_teaching/uploadfile.png)
+
 **b）上传：**
 
 **c）启动应用：**
