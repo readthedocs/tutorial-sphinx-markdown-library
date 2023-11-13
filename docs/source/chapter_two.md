@@ -182,50 +182,57 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 > 链接：<https://pan.baidu.com/s/1dcrn4T5fvY1LNH32gLHSVg?pwd=wxsc>
 > 提取码：wxsc
 
-#### 操作演示
+**操作演示:**
 
-##### a）示例文件上传
+**a）示例文件上传与解压:**
 
+- 将压缩包拖动到 [数据管理] 窗口中的用户根目录下
 ![文件上传](figs/script_sub_teaching/uploadfile.png)
+- 右键压缩包解压文件到根目录
+![解压](figs/script_sub_teaching/unzip.png)
 
-##### b）复制新的提交文件夹： 在提交新作业时，建议建立一个新的作业文件夹，所有计算相关文件与结果会默认保存在本文件夹下
+**b）复制新的提交文件夹：**
 
-- ```cp -r beam_stretch beam_stretch_sub   # 复制并重命名文件夹```
+> 在提交新作业时，建议建立一个新的作业文件夹，所有计算的中间文件与生成的结果会默认保存在当前文件目录下
 
-![复制一个新的sub文件夹](figs/script_sub_teaching/)
+- 点击右上角![终端打开](figs/script_sub_teaching/terminal_icon.png),选择命令终端,打开命令终端窗口
+![终端窗口](figs/script_sub_teaching/terminal_interface.png)
+- ```cd Example-script-submission   # 进入案例文件夹```
+![切换目录](figs/script_sub_teaching/change_directory_example.png)
+- ```cp -r beam_stretch beam_stretch_sub1   # 复制文件夹.可自行命名新的文件夹名称```
+![复制新的sub文件夹](figs/script_sub_teaching/cp_file.png)
 
-##### c）如果您已经熟悉了脚本提交,跳过本步骤,进入下一步
+**c）如果您已经了解脚本提交,请跳过本步骤,进入d):**
 
-> 本步骤是示例文件的快速演示
+> 本步骤是一次作业提交的快速演示
 
-- ```cd beam_stretch_sub   # 进入新建立的作业文件夹```
-
+- ```cd beam_stretch_sub1   # 进入新建立的作业文件夹```
 - ```./demo.sh   # 运行demo.sh文件```
-- 可在神工坊 [作业管理] 查看本次作业
+![运行demo](figs/script_sub_teaching/run_demo.png)
+- 可在神工坊 [作业管理] 查看本次作业任务
+![查看作业](figs/script_sub_teaching/check_demo.png)
 
-##### c）把将要运算的作业的inp文件上传(拖动)进新建立的文件夹中：这一步使用[数据管理]的文件管理界面完成操作
+**d）上传自己的计算文件:**
 
-- 打开新建立的beam_stretch_sub文件夹。将inp文件上传至本文件夹
+- 把将要运算的inp文件拖动到复制并重命名的作业文件夹中(beam_stretch_sub1)：这一步使用 [数据管理] 的文件管理界面完成操作,步骤同**a)**
 
-##### d）修改demo.sh文件中的参数
+**e）修改demo.sh文件中的参数(此处还缺少几个图):**
 
-- ```cd beam_stretch_sub   # 从命令终端进入新建立的作业文件夹```
+- ```cd beam_stretch_sub1   # 进入新建立的作业文件夹```
 
-- ```vim demo.sh   # 进入demo.sh文件```
+- ```vim demo.sh   # 打开demo.sh文件```
 
 - ```点击 i 按键   # 进入insert编辑模式```
 
 - 输入自己的inp文件名\设置节点数与核心数\为本次作业任务命名
 
-##### e）执行脚本demo.sh文件
+**f）提交作业任务:**
 
 - ```./demo.sh   # 执行demo.sh文件提交作业任务至队列```
 
-##### f）可至神工坊[作业管理]查看本次作业提交
-
-##### g）结果文件会自动保存在这个文件目录下
-
-##### h）任务结束
+**g）可至神工坊[作业管理]查看本次作业提交,同c)**
+**h）结果文件会自动保存在当前文件目录下:**
+![结果文件](figs/script_sub_teaching/check_result_document.png)
 
 ## 图形应用
 
