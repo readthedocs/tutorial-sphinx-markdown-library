@@ -179,8 +179,7 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 **案例说明:**
 本案例展示了使用脚本提交仿真计算作业的方式。相较于平台界面提交作业，脚本提交作业更加灵活，且学习成本不高，依据本教程可快速掌握。示例使用软件为 Abaqus2017
 > 本示例使用文件可从此处下载：
-> 链接：<https://pan.baidu.com/s/1dcrn4T5fvY1LNH32gLHSVg?pwd=wxsc>
-> 提取码：wxsc
+> 链接：<https://pan.baidu.com/s/10MQX4pyqSQ169Lt1wQKhGg?pwd=wxsc>
 
 **操作演示:**
 
