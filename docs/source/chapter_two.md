@@ -176,7 +176,7 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 
 ### 案例：脚本提交
 
-**案例说明**
+**案例说明:**
 本案例展示了使用脚本提交仿真计算作业的方式。相较于平台界面提交作业，脚本提交作业更加灵活，且学习成本不高，依据本教程可快速掌握。示例使用软件为 Abaqus2017
 > 本示例使用文件可从此处下载：
 > 链接：<https://pan.baidu.com/s/1dcrn4T5fvY1LNH32gLHSVg?pwd=wxsc>
@@ -184,14 +184,14 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 
 **操作演示:**
 
-**a）示例文件上传与解压:**
+#### 1. 示例文件上传与解压
 
 - 将压缩包拖动到 [数据管理] 窗口中的用户根目录下
 ![文件上传](figs/script_sub_teaching/uploadfile.png)
 - 右键压缩包解压文件到根目录
 ![解压](figs/script_sub_teaching/unzip.png)
 
-**b）复制新的提交文件夹：**
+#### 2. 复制新的提交文件夹
 
 > 在提交新作业时，建议建立一个新的作业文件夹，所有计算的中间文件与生成的结果会默认保存在当前文件目录下
 
@@ -202,9 +202,10 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 - ```cp -r beam_stretch beam_stretch_sub1   # 复制文件夹.可自行命名新的文件夹名称```
 ![复制新的sub文件夹](figs/script_sub_teaching/cp_file.png)
 
-**c）如果您已经了解脚本提交,请跳过本步骤,进入d):**
+#### 3. 快速开始
 
-> 本步骤是一次作业提交的快速演示
+> 如果您已经了解脚本提交,请跳过本步骤,进入步骤4.
+> 本步骤是一次脚本提交作业的快速演示
 
 - ```cd beam_stretch_sub1   # 进入新建立的作业文件夹```
 - ```./demo.sh   # 运行demo.sh文件```
@@ -212,26 +213,48 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 - 可在神工坊 [作业管理] 查看本次作业任务
 ![查看作业](figs/script_sub_teaching/check_demo.png)
 
-**d）上传自己的计算文件:**
+#### 4. 上传自己的计算文件
 
-- 把将要运算的inp文件拖动到复制并重命名的作业文件夹中(beam_stretch_sub1)：这一步使用 [数据管理] 的文件管理界面完成操作,步骤同**a)**
+- 把将要运算的inp文件拖动到作业文件夹中(beam_stretch_sub1)：这一步使用 [数据管理] 的文件管理界面完成操作,同步骤1
 
-**e）修改demo.sh文件中的参数(此处还缺少几个图):**
+#### 5. 修改demo.sh文件中的参数
+
+**方法1:**
+> 如果不熟悉vim编辑器,可使用**方法2**的文本编辑方法
 
 - ```cd beam_stretch_sub1   # 进入新建立的作业文件夹```
+- ```vim demo.sh   # 打开 demo.sh 文件```
+![进入demo](figs/script_sub_teaching/vim_demo.png)
+![展示demo](figs/script_sub_teaching/open_demo.png)
 
-- ```vim demo.sh   # 打开demo.sh文件```
+- 点击 **i** 按键. 随后 vim 编辑器下方会显示 **INSERT** 表示进入编辑模式
+![展示demo](figs/script_sub_teaching/vim_insert.png)
 
-- ```点击 i 按键   # 进入insert编辑模式```
+- 设置节点数与核心数\为本次作业任务命名\输入自己的inp文件名
+![展示demo](figs/script_sub_teaching/edit_demo.png)
 
-- 输入自己的inp文件名\设置节点数与核心数\为本次作业任务命名
+- 编辑完成后,点击**esc**按键退出编辑模式
+- 在vim编辑器的命令行输入```:wq```,点击**enter**,保存并退出编辑器
+![展示demo](figs/script_sub_teaching/wq.png)
 
-**f）提交作业任务:**
+****************************
+**方法2:**
+> 完成文本编辑后,后续操作仍需使用命令终端完成
 
-- ```./demo.sh   # 执行demo.sh文件提交作业任务至队列```
+- 右键demo文件,点击文本编辑
+![展示demo](figs/script_sub_teaching/right_click.png)
+- 编辑相关内容后,单击编辑器**保存并关闭**按钮,完成编辑
+![展示demo](figs/script_sub_teaching/right_edit.png)
 
-**g）可至神工坊[作业管理]查看本次作业提交,同c)**
-**h）结果文件会自动保存在当前文件目录下:**
+#### 6. 提交作业任务
+
+- ```chmod +x demo.sh # 给予文件执行权限```
+- ```./demo.sh # 执行demo.sh文件提交作业任务至队列```
+
+#### 7. 可至神工坊 [作业管理] 查看本次作业提交. 同3
+
+#### 8. 结果文件会自动保存在当前文件目录下
+
 ![结果文件](figs/script_sub_teaching/check_result_document.png)
 
 ## 图形应用
