@@ -203,19 +203,29 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 #### 1. 示例文件上传与解压
 
 - 将压缩包拖动到 [数据管理] 窗口中的用户根目录下
+
 ![文件上传](figs/script_sub_teaching/uploadfile.png)
+
 - 右键压缩包解压文件到根目录
+
 ![解压](figs/script_sub_teaching/unzip.png)
 
 #### 2. 复制新的提交文件夹
 
 > 在提交新作业时，建议建立一个新的作业文件夹，所有计算的中间文件与生成的结果会默认保存在当前文件目录下
 
-- 点击右上角![终端打开](figs/script_sub_teaching/terminal_icon.png),选择命令终端,打开命令终端窗口
+- 点击右上角
+
+![终端打开](figs/script_sub_teaching/terminal_icon.png),选择命令终端,打开命令终端窗口
+
 ![终端窗口](figs/script_sub_teaching/terminal_interface.png)
+
 - ```cd Example-script-submission   # 进入案例文件夹```
+
 ![切换目录](figs/script_sub_teaching/change_directory_example.png)
+
 - ```cp -r beam_stretch beam_stretch_sub1   # 复制文件夹.可自行命名新的文件夹名称```
+
 ![复制新的sub文件夹](figs/script_sub_teaching/cp_file.png)
 
 #### 3. 快速开始
@@ -225,8 +235,11 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 
 - ```cd beam_stretch_sub1   # 进入新建立的作业文件夹```
 - ```./demo.sh   # 运行demo.sh文件```
+
 ![运行demo](figs/script_sub_teaching/run_demo.png)
+
 - 可在神工坊 [作业管理] 查看本次作业任务
+
 ![查看作业](figs/script_sub_teaching/check_demo.png)
 
 #### 4. 上传自己的计算文件
@@ -240,17 +253,22 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 
 - ```cd beam_stretch_sub1   # 进入新建立的作业文件夹```
 - ```vim demo.sh   # 打开 demo.sh 文件```
+
 ![进入demo](figs/script_sub_teaching/vim_demo.png)
+
 ![展示demo](figs/script_sub_teaching/open_demo.png)
 
 - 点击 **i** 按键. 随后 vim 编辑器下方会显示 **INSERT** 表示进入编辑模式
+
 ![展示demo](figs/script_sub_teaching/vim_insert.png)
 
 - 设置节点数与核心数\为本次作业任务命名\输入自己的inp文件名
+
 ![展示demo](figs/script_sub_teaching/edit_demo.png)
 
 - 编辑完成后,点击**esc**按键退出编辑模式
 - 在vim编辑器的命令行输入```:wq```,点击**enter**,保存并退出编辑器
+
 ![展示demo](figs/script_sub_teaching/wq.png)
 
 ****************************
@@ -258,8 +276,11 @@ a）登录试用账户后，单击topbar右上角用户管理按钮，下拉框�
 > 完成文本编辑后,后续操作仍需使用命令终端完成
 
 - 右键demo文件,点击文本编辑
+
 ![展示demo](figs/script_sub_teaching/right_click.png)
+
 - 编辑相关内容后,单击编辑器**保存并关闭**按钮,完成编辑
+
 ![展示demo](figs/script_sub_teaching/right_edit.png)
 
 #### 6. 提交作业任务
