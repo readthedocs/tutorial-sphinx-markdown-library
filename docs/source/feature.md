@@ -271,7 +271,6 @@ spack load cmake@3.22.1%gcc@10.2.0 # 加载gcc-10.2.0编译的版本
 
 ![](figs/feature/ttyd.png)
 
-![](figs/feature/ttyd_2.png)
 
 
 打开后可进行命令行操作。如输入ls，可以查看用户文件夹中包含的文件。
