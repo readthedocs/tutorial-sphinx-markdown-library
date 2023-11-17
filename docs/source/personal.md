@@ -67,7 +67,7 @@
 
 - **查看计费价格**：点击查看计费价格后，弹出计费价格窗口，可查看通用队列、特殊队列、远程桌面和应用的计费价格。
 
-![](figs/personal/price_2.png#pic_center)
+![](figs/personal/price_2.png)
 
 
 ## 用户账单
