@@ -81,6 +81,7 @@
 如应用**Abaqus614-remote**即为远程应用，需联系管理员开通远程队列q_x86_share。
 
 可在应用商店中的应用简介中查看是否为远程应用。
+
 ![](figs/faq/remote_q.png)
 
 
