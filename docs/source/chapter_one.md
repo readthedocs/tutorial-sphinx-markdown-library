@@ -47,14 +47,14 @@
 以下是目前神工坊2.0平台已经接入的硬件资源（更新时间2023.1117）：
 | 名称         |  队列类型|所在集群 |    型号规格          |    集群资源 |
 |:-------:      |:-------:     | :----:    | :----:           |:----:      |  
-| q_x86_sfexper | CPU计算队列| 本地AMD集群（无锡超算）| AMD EPYC 7H12/7742  |     1\*128\*512G    | 
-| q_x86_sf      |CPU计算队列 |本地AMD集群（无锡超算）| AMD EPYC 7H12/7742|     8\*128\*512G   | 
-|  GPU_sf       | GPU图形队列|本地集群（无锡超算）| nvidia Quadro P400 |   1\*64\*128G     |
-|  GPU_RTX      |  GPU图形队列 |本地集群（无锡超算）| nvidia Quadro RTX 4000|    1\*40\*512G    |
-| q_x86_share   |CPU计算队列 | 远程Intel集群（无锡超算）| Intel(R) Xeon(R) CPU E5-2680 v3 |    766\*24\*128G    | 
-| q_x86_cn_sim  |CPU计算队列 | 远程Intel集群（无锡超算）| Intel(R) Xeon(R) CPU E5-2680 v3 |    5\*24\*128G    | 
-| q_amd_share   |CPU计算队列 | 远程AMD集群（盐城分中心）  | AMD EPYC 7H12| 500\*128\*256G    |
-| q_intel_share |CPU计算队列 | 远程Intel集群（盐城分中心）| Intel Xeon 8358| 60\*64\*256G      |
+| q_x86_sfexper | CPU计算队列| 本地AMD集群| AMD EPYC 7H12/7742  |     1\*128\*512G    | 
+| q_x86_sf      |CPU计算队列 |本地AMD集群| AMD EPYC 7H12/7742|     8\*128\*512G   | 
+|  GPU_sf       | GPU图形队列|本地集群| nvidia Quadro P400 |   1\*64\*128G     |
+|  GPU_RTX      |  GPU图形队列 |本地集群| nvidia Quadro RTX 4000|    1\*40\*512G    |
+| q_x86_share   |CPU计算队列 | 远程Intel集群| Intel(R) Xeon(R) CPU E5-2680 v3 |    766\*24\*128G    | 
+| q_x86_cn_sim  |CPU计算队列 | 远程Intel集群| Intel(R) Xeon(R) CPU E5-2680 v3 |    5\*24\*128G    | 
+| q_amd_share   |CPU计算队列 | 远程AMD集群 | AMD EPYC 7H12| 500\*128\*256G    |
+| q_intel_share |CPU计算队列 | 远程Intel集群| Intel Xeon 8358| 60\*64\*256G      |
 
 
 ![](figs/notice.png) **注意** :
